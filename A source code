@@ -1,0 +1,26 @@
+import math
+
+def scientific_calculator():
+    print("Scientific Calculator")
+    print("Type 'exit' to quit")
+    print("Available functions: sin, cos, tan, log, sqrt, exp, factorial")
+    print("Use math functions like: sin(30), log(10), sqrt(25)")
+
+    while True:
+        try:
+            user_input = input("\nEnter expression: ")
+
+            if user_input.lower() == 'exit':
+                print("Calculator closed.")
+                break
+
+            # Allow math functions
+            result = eval(user_input, {"__builtins__": None}, vars(math))
+
+            print("Result:", result)
+
+        except Exception as e:
+            print("Error:", e)
+
+if __name__ == "__main__":
+    scientific_calculator()
